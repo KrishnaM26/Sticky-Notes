@@ -8,7 +8,7 @@ const App = () => {
 
 	return(
 
-		<div>
+		<div data-theme="lofi">
 			<Routes>
 			
 				<Route path="/" element={<HomePage />} />
