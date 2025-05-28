@@ -9,12 +9,21 @@ dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 5001
 
-connectDB();
+//middleware
+
+//express.json() will allow you to parse json body: req.body
 app.use(express.json());
+
+//out custom middle ware
+//app.use((req,res,next) => {
+//	console.log(`requested ${req.method} & Req URL is ${req.url}`);
+//	next();
+//});
 
 app.use("/api/notes", noteRoutes);
 
-app.listen(PORT, () => {
-	console.log("Connected to Server - Port: ", PORT);
-
+connectDB().then(() => {
+	app.listen(PORT, () => {
+		console.log("Connected to Server - Port: ", PORT);
+	});
 });
