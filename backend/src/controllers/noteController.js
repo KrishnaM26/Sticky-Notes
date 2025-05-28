@@ -24,7 +24,7 @@ export async function getIdNote(req, res){
 
 export async function createNote(req,res){
 	try{
-		const {title, content} = res.body;
+		const {title, content} = req.body;
 		const newNote = new Note({title, content});
 		const savedNote = await newNote.save();
 		res.status(201).json(savedNote);
@@ -54,7 +54,7 @@ export async function updateNote(req,res){
 
 export async function deleteNote(req,res){
 	try{
-		const deleteNote = await Note.findByIdAndDelete(req.param.id);
+		const deleteNote = await Note.findByIdAndDelete(req.params.id);
 		if (!deleteNote) return res.status(404).json({message: "404 Note Not Found"});
 
 		res.status(200).json({message: "Deleted Note"});
