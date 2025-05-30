@@ -6,7 +6,7 @@ import api from "../lib/axios.js";
 
 const CreatePage = () => {
 
-        const [title, setTitle] = useState("");
+    const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
