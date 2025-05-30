@@ -10,7 +10,7 @@ const NoteCard = ({note, setNotes}) => {
 
 		e.preventDefault();
 		
-		if(!window.confirm(`Are you sure you want to delete '${note.title}'`)) retun;
+		if(!window.confirm(`Are you sure you want to delete '${note.title}'`)) return;
 
 		try{
 			await api.delete(`/notes/${id}`); 
