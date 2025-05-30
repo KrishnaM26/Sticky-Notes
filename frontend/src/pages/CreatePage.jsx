@@ -2,7 +2,7 @@ import {useState} from "react";
 import {Link, useNavigate} from "react-router";
 import {ArrowLeftIcon} from "lucide-react";
 import toast from "react-hot-toast";
-import axios from "axios";
+import api from "../lib/axios.js";
 
 const CreatePage = () => {
 
@@ -14,14 +14,13 @@ const CreatePage = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (!title.trim() || !content.trim()){
-
 				toast.error("All Fields Are Required");
 				return;
 		}
 
 		setLoading(true)
 		try{
-			await axios.post("http://localhost:5001/api/notes", {
+			await api.post("/notes", {
 				title, 
 				content
 			});
@@ -54,13 +53,13 @@ const CreatePage = () => {
 							<form onSubmit={handleSubmit}>
 								<div className="form-control mb-4">
 									<label className='label'>
-										<span className = "label-text">Title</span>
+										<span className = "label-text pb-2">Title<span className="text-red-500"> *</span></span>
 									</label>
 									<br/>
 									<input 
 										type="text"
 										placeholder = "Note Title"
-										className = "input input-bordered w-full"
+										className = "input input-primary w-full" 
 										value ={title}
 										onChange ={ (e) => setTitle(e.target.value)}
 									/>
@@ -68,12 +67,12 @@ const CreatePage = () => {
 								</div>
 								<div className="form-control mb-4">
 									<label className = "label"> 
-										<span className="tabel-text">Content</span>
+										<span className="tabel-text pb-2">Content<span className="text-red-500"> *</span></span>
 									</label>
 									<br/>
 									<textarea
 										placeholder = "Write your note here..."
-										className = "textarea textarea-borderd w-full h-30"
+										className = "textarea textarea-primary w-full h-30"
 										value = {content}
 										onChange = {(e) => setContent(e.target.value)}
 									/>
@@ -83,8 +82,7 @@ const CreatePage = () => {
 								</div>
 
 		
-							</form>
-						</div>
+							</form> </div>
 					</div>
 				</div>
 			</div>
