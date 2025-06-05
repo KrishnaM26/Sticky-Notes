@@ -1,4 +1,6 @@
-# BulletinBoard is a Sticky Notes web app implemented with MongoDB, Express.js, ReactJS, and Node,js (MERN)
+# BulletinBoard 
+
+BullwtiBoard is a Sticky Notes full-stack web app implemented with MongoDB, Express.js, ReactJS, and Node,js (MERN)
 
 ![Screenshot 2025-06-05 at 11 05 04 AM](https://github.com/user-attachments/assets/4a37c676-a84f-45bf-a3a6-7d32cdd61af0)
 
